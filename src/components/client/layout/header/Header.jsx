@@ -1,19 +1,25 @@
-import React from 'react';
+"use client"
+import React, {useState} from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import Menu from "@/components/client/layout/header/menu/Menu";
 import {menuItem, menuItem2} from "@/utils/DataMenu";
-import { IoSearchOutline } from "react-icons/io5";
-import { RiShoppingCart2Line } from "react-icons/ri";
-import { FaRegUser } from "react-icons/fa";
-
+import {IoSearchOutline} from "react-icons/io5";
+import {RiShoppingCart2Line} from "react-icons/ri";
+import {FaRegUser} from "react-icons/fa";
+import {IoMenuOutline} from "react-icons/io5";
+import MenuMobile from "@/components/client/layout/header/menu/MenuMobile";
+import {AnimatePresence} from "framer-motion";
 
 
 function Header(props) {
+    const [showMenu, setShowMenu] = useState(false)
+
 
     return (
         <>
-            <header className="bg-white w-full h-[100px] px-8 shadow-md flex items-center justify-around">
+            {/*Desktop*/}
+            <header className="hidden bg-white w-full h-[100px] px-8 shadow-md  md:flex items-center justify-around">
                 <div>
                     <Link href="/PROGRMMING/NEXT/foodproject/public">
                         <Image
@@ -104,14 +110,17 @@ function Header(props) {
 
                 </div>
                 <div className="flex items-center justify-center">
-                    <div className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                    <div
+                        className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
                         <IoSearchOutline size={24}/>
                     </div>
-                    <div className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                    <div
+                        className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
                         <RiShoppingCart2Line size={24}/>
 
                     </div>
-                    <div className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                    <div
+                        className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
                         <FaRegUser size={24}/>
 
                     </div>
@@ -119,6 +128,43 @@ function Header(props) {
                 </div>
             </header>
 
+            {/*Mobile*/}
+            <header className="flex items-center justify-between md:hidden px-8 py-5 shadow-md">
+                <div onClick={() => setShowMenu(!showMenu)} className="text-[#417F56] cursor-pointer"><IoMenuOutline
+                    size={24}/></div>
+                <div>
+                    <Link href="">
+                        <Image
+                            src="/image/Logo.svg"
+                            alt="Logo"
+                            width={102}
+                            height={32}
+                            priority
+                        />
+                    </Link>
+                </div>
+                <div className="flex  items-center">
+                    <div
+                        className="w-[24px] ml-2 cursor-pointer h-[24px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                        <RiShoppingCart2Line size={16}/>
+
+                    </div>
+                    <div
+                        className="w-[24px]  h-[24px] cursor-pointer bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                        <FaRegUser size={16}/>
+                    </div>
+
+                </div>
+            </header>
+
+            <AnimatePresence>
+                {
+
+                    showMenu && (
+                        <MenuMobile setShowMenu={setShowMenu}/>
+                    )
+                }
+            </AnimatePresence>
         </>
     );
 }
