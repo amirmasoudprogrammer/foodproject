@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import {IoMdClose} from "react-icons/io";
-import { motion, AnimatePresence } from "framer-motion";
+import {motion, AnimatePresence} from "framer-motion";
 
 import Link from "next/link";
 import {RiHome2Line} from "react-icons/ri";
@@ -9,13 +9,13 @@ import {FaUsers} from "react-icons/fa";
 import {IoCallOutline} from "react-icons/io5";
 import {IoIosMenu} from "react-icons/io";
 import {IoIosArrowDown} from "react-icons/io";
-import { FaShop } from "react-icons/fa6";
-
+import {FaShop} from "react-icons/fa6";
 
 
 function MenuMobile({setShowMenu}) {
     const [showMenuMobile, setShowMenuMobile] = useState(false)
     const [showMenuBranch, setShowMenuBranch] = useState(false);
+
     return (
         <div className="flex md:hidden absolute inset-0 bg-black/10 backdrop-blur-sm z-50">
 
@@ -29,7 +29,8 @@ function MenuMobile({setShowMenu}) {
 
 
                 <div className="relative w-[256px] h-full bg-white shadow-xl z-50">
-                    <div className="relative w-full h-[100px] bg-[url('/image/imagecaverMenu.jpg')] bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black/55">
+                    <div
+                        className="relative w-full h-[100px] bg-[url('/image/imagecaverMenu.jpg')] bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black/55">
                         <div className="relative z-10 flex items-center justify-between px-5 w-full h-full">
                             <div>
                                 <Image
@@ -52,7 +53,8 @@ function MenuMobile({setShowMenu}) {
                                 <RiHome2Line/>
                                 <Link className="text-[12px] mr-2" href="/">صفحه اصلی</Link>
                             </div>
-                            <div onClick={() => setShowMenuMobile(!showMenuMobile)} className="mt-5 pt-2 text-black text-[12px]">
+                            <div onClick={() => setShowMenuMobile(!showMenuMobile)}
+                                 className="mt-5 pt-2 text-black text-[12px]">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center ">
                                         <IoIosMenu/>
@@ -80,10 +82,11 @@ function MenuMobile({setShowMenu}) {
 
                                 </AnimatePresence>
                             </div>
-                            <div onClick={() => setShowMenuBranch(!showMenuBranch)} className="mt-5 pt-2 text-black text-[12px]">
+                            <div onClick={() => setShowMenuBranch(!showMenuBranch)}
+                                 className="mt-5 pt-2 text-black text-[12px]">
                                 <div className="flex items-center justify-between">
-                                    <div className="flex items-center ">
-                                        <FaShop />
+                                    <div  className="flex items-center ">
+                                        <FaShop/>
                                         <Link className="mr-2" href=""> شعبه</Link>
                                     </div>
                                     <IoIosArrowDown/>

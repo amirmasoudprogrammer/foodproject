@@ -10,11 +10,12 @@ import {FaRegUser} from "react-icons/fa";
 import {IoMenuOutline} from "react-icons/io5";
 import MenuMobile from "@/components/client/layout/header/menu/MenuMobile";
 import {AnimatePresence} from "framer-motion";
+import PopupItems from "@/components/client/layout/header/popItem/PopupItems";
 
 
 function Header(props) {
     const [showMenu, setShowMenu] = useState(false)
-
+    const [popItem, setPopItem] = useState(false)
 
     return (
         <>
@@ -51,7 +52,7 @@ function Header(props) {
                         </Link>
                     </li>
 
-                    <Menu label="شعبه" children={menuItem} mr="ml-5"/>
+                    <Menu setPopItem={setPopItem} label="شعبه" children={menuItem} mr="ml-5"/>
                     <Menu label="منو" children={menuItem2}/>
                     <li className="mr-5 group">
                         <Link href="" className="
@@ -164,6 +165,14 @@ function Header(props) {
                         <MenuMobile setShowMenu={setShowMenu}/>
                     )
                 }
+            </AnimatePresence>
+
+            <AnimatePresence>
+            {
+                popItem && (
+                    <PopupItems onClose={setPopItem}/>
+                )
+            }
             </AnimatePresence>
         </>
     );
