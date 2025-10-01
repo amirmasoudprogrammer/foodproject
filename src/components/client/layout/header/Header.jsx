@@ -11,11 +11,17 @@ import {IoMenuOutline} from "react-icons/io5";
 import MenuMobile from "@/components/client/layout/header/menu/MenuMobile";
 import {AnimatePresence} from "framer-motion";
 import PopupItems from "@/components/client/layout/header/popItem/PopupItems";
+import PopupSearch from "@/components/client/layout/header/popItem/PopupSearch";
 
 
 function Header(props) {
     const [showMenu, setShowMenu] = useState(false)
     const [popItem, setPopItem] = useState(false)
+     const [popupSearch , setPopupSearch] = useState(false)
+
+    const startSearch = () => {
+        setPopupSearch(true)
+    }
 
     return (
         <>
@@ -111,8 +117,7 @@ function Header(props) {
 
                 </div>
                 <div className="flex items-center justify-center">
-                    <div
-                        className="w-[40px] mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
+                    <div onClick={() => startSearch()} className="w-[40px] cursor-pointer mr-4 h-[40px] bg-[#E5F2E9] text-[#417F56] flex items-center justify-center rounded">
                         <IoSearchOutline size={24}/>
                     </div>
                     <div
@@ -173,6 +178,14 @@ function Header(props) {
                     <PopupItems onClose={setPopItem}/>
                 )
             }
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {
+                    popupSearch && (
+                        <PopupSearch setPopupSearch={setPopupSearch}/>
+                    )
+                }
             </AnimatePresence>
         </>
     );
