@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import NotFoundPage from "@/components/client/shared/NotFoundPage";
+import NotFoundPage from "@/shared/NotFoundPage";
+
 
 function NotFound() {
 
     return (
         <>
-            <NotFoundPage/>
+            <NotFoundPage />
         </>
     );
 }

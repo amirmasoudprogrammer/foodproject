@@ -1,5 +1,5 @@
 import "./globals.css";
-import Layout from "@/components/client/layout/Layout";
+import Layout from "@/shared/layout/Layout";
 
 
 export const metadata = {
