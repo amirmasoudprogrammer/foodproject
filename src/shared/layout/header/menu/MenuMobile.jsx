@@ -72,10 +72,10 @@ function MenuMobile({setShowMenu}) {
                                                 transition={{duration: 0.3, ease: "easeInOut"}}
                                                 className="bg-white/95 backdrop-blur-md mt-2 rounded-xl shadow-inner px-5 py-4 flex flex-col items-start overflow-hidden"
                                             >
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">غذای اصلی</Link>
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">پیش غذا</Link>
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">دسر</Link>
-                                                <Link className="" href="@/shared/layout/header/menu/MenuMobile">نوشیدنی</Link>
+                                                <Link className="mb-5" href="/">غذای اصلی</Link>
+                                                <Link className="mb-5" href="/">پیش غذا</Link>
+                                                <Link className="mb-5" href="/">دسر</Link>
+                                                <Link className="" href="/">نوشیدنی</Link>
                                             </motion.div>
                                         )
                                     }
@@ -87,7 +87,7 @@ function MenuMobile({setShowMenu}) {
                                 <div className="flex items-center justify-between">
                                     <div  className="flex items-center ">
                                         <FaShop/>
-                                        <Link className="mr-2" href="@/shared/layout/header/menu/MenuMobile"> شعبه</Link>
+                                        <Link className="mr-2" href="/substation"> شعبه</Link>
                                     </div>
                                     <IoIosArrowDown/>
                                 </div>
@@ -101,10 +101,10 @@ function MenuMobile({setShowMenu}) {
                                                 transition={{duration: 0.3, ease: "easeInOut"}}
                                                 className="bg-white/95 backdrop-blur-md mt-2 rounded-xl shadow-inner px-5 py-4 flex flex-col items-start overflow-hidden"
                                             >
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">اکباتان</Link>
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">چالوس</Link>
-                                                <Link className="mb-5" href="@/shared/layout/header/menu/MenuMobile">اقدسیه</Link>
-                                                <Link className="" href="@/shared/layout/header/menu/MenuMobile">ونک</Link>
+                                                <Link className="mb-5" href="/substation">اکباتان</Link>
+                                                <Link className="mb-5" href="/substation">چالوس</Link>
+                                                <Link className="mb-5" href="/substation">اقدسیه</Link>
+                                                <Link className="" href="/substation">ونک</Link>
                                             </motion.div>
                                         )
                                     }
