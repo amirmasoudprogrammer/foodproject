@@ -8,7 +8,7 @@ function CardComments({data}) {
 
 
     return (
-        <div className="w-[252px] h-[142px] md:w-[600px] h-[202px] flex flex-col items-center justify-between border border-[#CBCBCB] rounded-xl overflow-hidden">
+        <div className="w-[252px] h-[142px] md:w-[600px] md:h-[202px] flex flex-col items-center justify-between border border-[#CBCBCB] rounded-xl overflow-hidden">
             <div className="flex items-center justify-end ">
                 <div className="w-[148px] md:w-[427px] mr-3 flex flex-col text-black text-end text-[10px] md:text-[16px] ">
                     <p>{comment}</p>
