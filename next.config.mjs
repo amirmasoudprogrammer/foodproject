@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.dummyjson.com'], // اضافه کن hostname تصویر خارجی
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "cdn.dummyjson.com",
+            },
+        ],
+        dangerouslyAllowSVG: true,
+        minimumCacheTTL: 60,
     },
+
 };
 
 export default nextConfig;

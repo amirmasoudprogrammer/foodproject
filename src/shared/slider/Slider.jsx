@@ -7,10 +7,9 @@ import {SlArrowRight} from "react-icons/sl";
 import {SlArrowLeft} from "react-icons/sl";
 import Image from "next/image";
 import Link from "next/link";
-import {DataSliders} from "@/utils/DataMenu";
 
 
-export default function Slider() {
+export default function Slider({data}) {
 
     const OPTIONS = {loop: true, duration: 5}
     const SLIDES = [1, 2, 3]
@@ -40,7 +39,7 @@ export default function Slider() {
 
             <div className="embla__viewport  w-full h-full overflow-hidden" ref={emblaRef}>
                 <div className="embla__container w-full h-full relative">
-                    {DataSliders.map((item) => (
+                    {data?.map((item) => (
                         <div key={item.id}
                              className="embla__slide  flex items-center justify-between w-full h-full relative">
                             <div className="relative w-full h-full">
@@ -56,9 +55,9 @@ export default function Slider() {
                             <div
                                 className=" absolute h-[200px] m-auto left-0 right-0 flex flex-col items-center m-auto justify-center">
                                 <span className="text-[16px] md:text-[40px]">{item.label}</span>
-                                <Link
-                                    className="w-[91px] h-[24px] text-[10px] md:text-lg md:w-[184px] md:h-[40px] mt-10 bg-[#417F56] rounded-lg text-center flex items-center justify-center"
-                                    href="">سفارش آنلاین غذا</Link>
+                                {
+                                    item.label && (<Link className="w-[91px] h-[24px] text-[10px] md:text-lg md:w-[184px] md:h-[40px] mt-10 bg-[#417F56] rounded-lg text-center flex items-center justify-center" href="">سفارش آنلاین غذا</Link>)
+                                }
                             </div>
                         </div>
                     ))}
@@ -74,18 +73,19 @@ export default function Slider() {
 
             </div>
 
-            <div className="absolute bottom-0 w-[154px] h-[33px] bg-[url('/image/Rectangle2.svg')] bg-cover bg-center rounded-t-3xl left-1/2 -translate-x-1/2 flex items-center justify-center gap-2">
-                {SLIDES.map((_, i) => (
-                    <button
-                        key={i}
-                        className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                            i === selectedIndex ? "bg-[#417F56]" : "bg-[#ADADAD]"
-                        }`}
-                        onClick={() => scrollTo(i)}
-                    />
-                ))}
-            </div>
-
+            {
+                data?.some(item => item.label) && (<div className="absolute bottom-0 w-[154px] h-[33px] bg-[url('/image/Rectangle2.svg')] bg-cover bg-center rounded-t-3xl left-1/2 -translate-x-1/2 flex items-center justify-center gap-2">
+                        {SLIDES.map((_, i) => (
+                            <button
+                                key={i}
+                                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                                    i === selectedIndex ? "bg-[#417F56]" : "bg-[#ADADAD]"
+                                }`}
+                                onClick={() => scrollTo(i)}
+                            />
+                        ))}
+                    </div>)
+            }
         </div>
     )
 }
